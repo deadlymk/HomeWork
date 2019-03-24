@@ -194,7 +194,7 @@ namespace AcademyApp
                         allTrainers.RemoveAll(emp => emp.FristName == inputRemoveTrainer);
 
                     }
-                    else if (inputPersonRemove == 3) // da nemoze da se remove sam sebe
+                    else if (inputPersonRemove == 3) 
                     {
                         foreach (var admin in allAdmins)
                         {

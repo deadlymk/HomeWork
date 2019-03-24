@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.cs" />
-    <Compile Include="EnumRole.cs" />
     <Compile Include="Subjects.cs" />
     <Compile Include="Trainer.cs" />
     <Compile Include="Person.cs" />

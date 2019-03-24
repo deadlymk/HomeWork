@@ -8,7 +8,7 @@ namespace Classes
 {
     public class Student : Person
     {
-        public Role RoleOfStudent { get; set; }
+        
         public List<Student> Grades { get; set; }
         public List<Subjects> ListOfSubjects { get; set; } = new List<Subjects>();
 
@@ -17,7 +17,7 @@ namespace Classes
             FristName = _frist;
             LastName = _last;
             Password = _password;
-            RoleOfStudent = Role.Student;
+          
 
         }
 

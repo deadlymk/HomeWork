@@ -10,3 +10,9 @@ C:\Users\deadly\source\repos\AcademyApp\Classes\obj\Debug\Classes.csprojAssembly
 C:\Users\deadly\source\repos\AcademyApp\Classes\obj\Debug\Classes.csproj.CoreCompileInputs.cache
 C:\Users\deadly\source\repos\AcademyApp\Classes\obj\Debug\Classes.dll
 C:\Users\deadly\source\repos\AcademyApp\Classes\obj\Debug\Classes.pdb
+C:\Users\deadly\Desktop\HomeWork\AcademyApp\Classes\obj\Debug\Classes.csprojAssemblyReference.cache
+C:\Users\deadly\Desktop\HomeWork\AcademyApp\Classes\obj\Debug\Classes.csproj.CoreCompileInputs.cache
+C:\Users\deadly\Desktop\HomeWork\AcademyApp\Classes\obj\Debug\Classes.dll
+C:\Users\deadly\Desktop\HomeWork\AcademyApp\Classes\obj\Debug\Classes.pdb
+C:\Users\deadly\Desktop\HomeWork\AcademyApp\Classes\bin\Debug\Classes.dll
+C:\Users\deadly\Desktop\HomeWork\AcademyApp\Classes\bin\Debug\Classes.pdb

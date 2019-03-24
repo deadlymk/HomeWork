@@ -8,7 +8,7 @@ namespace Classes
 {
     public class Admin : Person
     {
-        public Role RoleOfAdmin { get; set; }
+        
        
 
 
@@ -17,7 +17,7 @@ namespace Classes
             FristName = frist;
             LastName = last;     
             Password = _password;  
-            RoleOfAdmin = Role.Admin;
+            
 
         }
 
