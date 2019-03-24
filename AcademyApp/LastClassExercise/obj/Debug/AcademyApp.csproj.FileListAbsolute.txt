@@ -1,0 +1,10 @@
+C:\Users\deadly\source\repos\AcademyApp\LastClassExercise\bin\Debug\LastClassExercise.exe.config
+C:\Users\deadly\source\repos\AcademyApp\LastClassExercise\bin\Debug\LastClassExercise.exe
+C:\Users\deadly\source\repos\AcademyApp\LastClassExercise\bin\Debug\LastClassExercise.pdb
+C:\Users\deadly\source\repos\AcademyApp\LastClassExercise\bin\Debug\Classes.dll
+C:\Users\deadly\source\repos\AcademyApp\LastClassExercise\bin\Debug\Classes.pdb
+C:\Users\deadly\source\repos\AcademyApp\LastClassExercise\obj\Debug\AcademyApp.csprojAssemblyReference.cache
+C:\Users\deadly\source\repos\AcademyApp\LastClassExercise\obj\Debug\AcademyApp.csproj.CoreCompileInputs.cache
+C:\Users\deadly\source\repos\AcademyApp\LastClassExercise\obj\Debug\AcademyApp.csproj.CopyComplete
+C:\Users\deadly\source\repos\AcademyApp\LastClassExercise\obj\Debug\LastClassExercise.exe
+C:\Users\deadly\source\repos\AcademyApp\LastClassExercise\obj\Debug\LastClassExercise.pdb
