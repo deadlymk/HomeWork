@@ -81,7 +81,7 @@ namespace AcademyApp
             List<Student> allStudents = new List<Student>() { john, mario };
 
             Subjects math = new Subjects("Math", 5);
-            Subjects art = new Subjects( "Art", 3);
+            Subjects art = new Subjects("Art", 3);
             Subjects biology = new Subjects("Biology", 3);
             Subjects sport = new Subjects("Sport", 3);
             Subjects music = new Subjects("Music", 2);
@@ -93,25 +93,22 @@ namespace AcademyApp
             List<Trainer> allTrainers = new List<Trainer>() { ivan, milodrag };
 
             var JohnStudent = (from student in allStudents
-                                where student.FristName == "John"
-                                 select student).FirstOrDefault();
+                               where student.FristName == "John"
+                               select student).FirstOrDefault();
 
-            var johnSubjects = (from sub in allSubjects
-                                  where sub.SubjectName == "Math" || sub.SubjectName == "Biology"
-                                  select sub).ToList();
-
-            JohnStudent.ListOfSubjects = johnSubjects;
-
-            var marioSubjects = (from sub in allSubjects
-                                 where sub.SubjectName == "Art" || sub.SubjectName == "Music"
-                                 select sub).ToList();
+            JohnStudent.AddSubAndGrades(allSubjects[0], 2);
+            JohnStudent.AddSubAndGrades(allSubjects[2], 4);
+            JohnStudent.AddSubAndGrades(allSubjects[1], 2);
+            JohnStudent.AddSubAndGrades(allSubjects[3], 4);
+      
 
 
             var marioStudent = (from student in allStudents
                                 where student.FristName == "Mario"
                                 select student).FirstOrDefault();
 
-            marioStudent.ListOfSubjects = marioSubjects;
+            marioStudent.AddSubAndGrades(allSubjects[0], 5);
+            marioStudent.AddSubAndGrades(allSubjects[4], 2);
 
             Console.WriteLine("Enter a number ");
             Console.WriteLine(" 1:Admin \n 2:Trainer \n 3:Student");
@@ -132,10 +129,11 @@ namespace AcademyApp
                               where admin.FristName == inputUsername && admin.Password == inputPassword
                               select admin).FirstOrDefault();
 
-                Console.WriteLine("Hello " + result.GetFullName());
+                Admin admince = new Admin();
+
+                admince = result;
+                Console.WriteLine("Hello " + admince.GetFullName());
                 Console.WriteLine("1:Add \n 2:Remove");
-
-
 
                 int inputAddRemove;
                 bool inputAdmin4 = Int32.TryParse(Console.ReadLine(), out inputAddRemove);
@@ -172,39 +170,43 @@ namespace AcademyApp
                     var inputPersonRemove = int.Parse(Console.ReadLine());
                     if (inputPersonRemove == 1)
                     {
-                        foreach (var student in allStudents)
-                        {
-                            Console.WriteLine(student.FristName);
-                        }
+                        admince.SeeAllStudent(allStudents);
 
+                        admince.RemoveStudent(allStudents);
 
-                        Console.WriteLine("type the name of the student to delete it ");
-                        string inputRemoveStudent = Console.ReadLine();
-
-                        allStudents.RemoveAll(emp => emp.FristName == inputRemoveStudent);
+                        //  allStudents.RemoveAll(emp => emp.FristName == inputRemoveStudent);
                     }
                     else if (inputPersonRemove == 2)
                     {
-                        foreach (var trainer in allTrainers)
-                        {
-                            Console.WriteLine(trainer.FristName);
-                        }
-                        Console.WriteLine("type the name of the trainer to delete it ");
-                        string inputRemoveTrainer = Console.ReadLine();
-                        allTrainers.RemoveAll(emp => emp.FristName == inputRemoveTrainer);
+                        admince.SeeallTrainers(allTrainers);
+                        admince.RemoveTrainer(allTrainers);
+
+                        //  allTrainers.RemoveAll(emp => emp.FristName == inputRemoveTrainer);
 
                     }
-                    else if (inputPersonRemove == 3) 
+                    else if (inputPersonRemove == 3)
                     {
+
+                        admince.SeeAllAdmins(allAdmins);
+
+                        Console.WriteLine("type the name of the admin to delete it ");
+                        string adminName = Console.ReadLine();
+                        Console.WriteLine("type the lastname of the admin to delete it ");
+                        string adminLastName = Console.ReadLine();
+
                         foreach (var admin in allAdmins)
                         {
-                            Console.WriteLine(admin.FristName);
 
-                            if(inputUsername == admin.FristName && inputPassword == admin.Password)
+                            if (admince.FristName.Equals(adminName))
                             {
-                                Console.WriteLine("sorry you cant remove your self");
+                                Console.WriteLine("you cant remove yourself");
+                                break;
                             }
-                            Console.WriteLine();
+                            else if (admin.FristName.Equals(adminName) && admin.LastName.Equals(adminLastName))
+                            {
+                                allAdmins.Remove(admin);
+                                break;
+                            }
                         }
                     }
 
@@ -228,24 +230,32 @@ namespace AcademyApp
                                where trainer1.FristName == inputTrainerUser || trainer1.Password == inputTrainerPassword
                                select trainer1).FirstOrDefault();
 
+                Trainer trainer2 = new Trainer();
+                trainer2 = trainer;
                 Console.WriteLine("Hello " + trainer.GetFullName());
                 Console.WriteLine("1:all students 2:all subjects");
 
                 int inputStudentSubject = int.Parse(Console.ReadLine());
+
                 if (inputStudentSubject == 1)
                 {
                     Console.WriteLine("enter a name to get his subjects");
-                    foreach (var student in allStudents)
+
+                    trainer2.SeeAllStudent(allStudents);
+
+                    string frist = Console.ReadLine();
+
+                    foreach (var item in allStudents)
                     {
-                        Console.WriteLine(student.FristName);
+                        if (item.FristName.Equals(frist))
+                        {
+                            foreach (var sub in allSubjects)
+                            {
+                                Console.WriteLine($"{sub.SubjectName} ");
+                            }
+                        }
                     }
 
-                    string inputName = Console.ReadLine();
-
-                    var getStudent = (from student in allStudents
-                                      where inputName == student.FristName
-                                      select student).FirstOrDefault();
-                    getStudent.GetSubjects();
                 }
                 else if (inputStudentSubject == 2)
                 {
@@ -254,19 +264,11 @@ namespace AcademyApp
                         Console.WriteLine(subject.SubjectName);
 
                     }
-                }
-                else if (inputStudentSubject == 2) //Trainer all Subject
-                {
 
-                    foreach (var subArray in allSubjects)
-                    {
-                        Console.WriteLine(subArray.SubjectName);
-                        foreach (var item in allStudents)
-                        {
-                          
-                        }
-                    }
+
+
                 }
+               
 
             }
             else if (input == 3) //student
@@ -281,10 +283,13 @@ namespace AcademyApp
                 var loginStudent = (from student in allStudents
                                     where student.FristName == inputStudentUser && student.Password == inputStudentPw
                                     select student).FirstOrDefault();
-                Console.WriteLine("Hello " + loginStudent.GetFullName());
-                
-               
+                Student studence = new Student();
+                studence = loginStudent;
+              
 
+                Console.WriteLine("Hello " + studence.GetFullName());
+                bool c = true;
+                studence.SeeSubject(inputStudentUser,allStudents,c);
             }
 
             Console.ReadLine();

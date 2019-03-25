@@ -6,18 +6,23 @@ using System.Threading.Tasks;
 
 namespace Classes
 {
-   public class Subjects : Person
+    public class Subjects : Person
     {
-        
-        public  string SubjectName { get; set; }
-        public int Grades { get; set; }
 
-        public Subjects(string subjectName, int grade)
+        public string SubjectName { get; set; }
+        public int NumberOfClasses { get; set; }
+        public int Count { get; set; }
+
+        public Subjects(string subjectName, int number)
         {
 
             SubjectName = subjectName;
-            Grades = grade;
+            NumberOfClasses = number;
+            Count = 0;
         }
+
+
+       
 
     }
 }
